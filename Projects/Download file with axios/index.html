@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axios file download</title>
+
+  <!-- Axios CDN-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js" integrity="sha512">
+    //cdnjs.com/libraries/axios   --axios web link
+   </script>
+</head>
+<body>
+  
+
+  <script>
+
+    axios.get("https://th.bing.com/th?id=OIP.3hCBFqr2O3Y_Z2EVxJCsjgHaKw&w=207&h=301&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2", {
+      responseType: 'blob',  //to let axios it is not getting json file(default is json)
+    })     //blob is just a container of file, file like data
+    .then((obj) => { 
+      const url = URL.createObjectURL(obj.data);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'random-image.jpg'
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url)
+
+        //console.log(obj.data)
+     })  //to read the file
+    .catch(err => console.error(err))
+
+
+  </script>
+</body>
+</html>
