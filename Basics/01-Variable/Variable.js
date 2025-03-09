@@ -7,7 +7,7 @@
 let x;
 x=100;
 //or  
-let y = 100; //when used together initialization
+let y = 100; //when used together initializaton
 
 console.log(typeof y)
  

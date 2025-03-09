@@ -7,7 +7,7 @@ let circumfrance;
 radius = window.prompt('enter the radius of the circle');
 radius = Number(radius)
 
-circumfrance = 2 * pi * radius;
+circumfrance = 2 * PI * radius;
 
 console.log(circumfrance)
 
